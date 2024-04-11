@@ -11,7 +11,8 @@
 
     /* Strictness */
     "strict": true,
-    "noUncheckedIndexedAccess": true,
+    // clashes with @natcore/design-system-core/src/plugin
+    // "noUncheckedIndexedAccess": true,
     "checkJs": true,
 
     /* Bundled projects */
