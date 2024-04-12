@@ -19,8 +19,6 @@ export const SidebarItem = ({ href, children }: SidebarItemProps) => {
     <li
       className={twMerge(
         "list-item",
-        "hover:!bg-white/20",
-        "hover:!text-white",
         href && pathname.startsWith(href) && "!bg-white/40",
       )}
       onClick={handleClick}

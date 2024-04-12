@@ -35,7 +35,7 @@ export default function RootLayout({
                   style={{ fontFamily: "fantasy" }}
                 >
                   <span className="text-5xl">SAPPHO</span>
-                  <span className=" text-lg tracking-widest">
+                  <span className="text-lg tracking-widest">
                     & her Finances
                   </span>
                 </span>

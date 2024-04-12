@@ -1,12 +1,17 @@
-import { SidebarItem } from "./sidebar-item";
+import { DashboardLink } from "../(dashboard)/page";
+import { SalesVenuesLink } from "../sales-venues/page";
 
 export const Sidebar = () => {
   return (
-    <ul className=" list text-primary-background-color gap-4">
-      <SidebarItem href="">Dashboard</SidebarItem>
-      <SidebarItem href="">Products</SidebarItem>
-      <SidebarItem href="/sales-venues">Sales venues</SidebarItem>
-      <SidebarItem href="">Sales reports</SidebarItem>
-    </ul>
+    <nav className="list gap-4">
+      <DashboardLink className="inline-block list-item h-full w-full">
+        Dashboard
+      </DashboardLink>
+      <span className="list-item">Products</span>
+      <SalesVenuesLink className="inline-block list-item h-full w-full">
+        Sales Venue
+      </SalesVenuesLink>
+      <span className="list-item">Sales reports</span>
+    </nav>
   );
 };
