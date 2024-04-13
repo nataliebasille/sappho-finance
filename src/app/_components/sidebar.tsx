@@ -3,7 +3,7 @@ import { SalesVenuesLink } from "../sales-venues/link";
 
 export const Sidebar = () => {
   return (
-    <nav className="list list-secondary gap-1 bg-primary-400 *:!rounded-none *:!py-4">
+    <nav className="list list-secondary gap-2 bg-primary-400 pt-2 *:!rounded-none *:!py-4">
       <DashboardLink className="list-item h-full w-full text-primary-contrast-base">
         Dashboard
       </DashboardLink>
