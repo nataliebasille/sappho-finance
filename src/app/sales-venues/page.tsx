@@ -1,4 +1,4 @@
-import { createPage } from "~/lib/createPage";
+import { createPage } from "~/app/_components/create-page";
 
 const { SalesVenuesPage, SalesVenuesLink } = createPage({
   name: "SalesVenues",

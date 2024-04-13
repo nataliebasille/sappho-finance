@@ -1,4 +1,4 @@
-import { createPage } from "~/lib/createPage";
+import { createPage } from "~/app/_components/create-page";
 
 const { DashboardPage, DashboardLink } = createPage({
   name: "dashboard",

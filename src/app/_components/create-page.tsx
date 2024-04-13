@@ -1,6 +1,6 @@
-import Link from "next/link";
 import type { FC } from "react";
 import type { ZodSchema, infer as Infer } from "zod";
+import { NavLink } from "./nav-link";
 
 type PageDeclaration<TName extends string, TParams extends ZodSchema> = {
   [K in `${Capitalize<TName>}Page`]: FC;
@@ -43,9 +43,9 @@ function createLinkComponent<TParams extends ZodSchema>(
 ) {
   const LinkComponent = ({ children, className }: LinkProps<TParams>) => {
     return (
-      <Link className={className} href={path}>
+      <NavLink className={className} href={path}>
         {children}
-      </Link>
+      </NavLink>
     );
   };
 
@@ -67,5 +67,5 @@ function normalizePath(path: string) {
     .replace(/\/page.tsx$/, "")
     .replace(/\(.*\)/, "");
 
-  return normalizedPath ? normalizedPath : "/";
+  return `/${normalizedPath}`;
 }

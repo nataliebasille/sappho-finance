@@ -3,15 +3,17 @@ import { SalesVenuesLink } from "../sales-venues/page";
 
 export const Sidebar = () => {
   return (
-    <nav className="list gap-4">
-      <DashboardLink className="inline-block list-item h-full w-full">
+    <nav className="list list-secondary gap-4">
+      <DashboardLink className="text-primary-contrast-base inline-block list-item h-full w-full">
         Dashboard
       </DashboardLink>
-      <span className="list-item">Products</span>
-      <SalesVenuesLink className="inline-block list-item h-full w-full">
+      <span className="text-primary-contrast-base  list-item">Products</span>
+      <SalesVenuesLink className="text-primary-contrast-base inline-block list-item h-full  w-full">
         Sales Venue
       </SalesVenuesLink>
-      <span className="list-item">Sales reports</span>
+      <span className="text-primary-contrast-base  list-item">
+        Sales reports
+      </span>
     </nav>
   );
 };
