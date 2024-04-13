@@ -29,9 +29,9 @@ export default function RootLayout({
         >
           <TRPCReactProvider>
             <div className="layer layer-fixed">
-              <aside className="layer-drawer bg-primary-base flex min-w-72 flex-col px-2">
+              <aside className="layer-drawer flex min-w-72 flex-col bg-primary-base">
                 <span
-                  className="flex flex-col items-center justify-center pt-5 text-white"
+                  className="flex flex-col items-center justify-center px-2 pt-5 text-white"
                   style={{ fontFamily: "fantasy" }}
                 >
                   <span className="text-5xl">SAPPHO</span>
@@ -39,10 +39,8 @@ export default function RootLayout({
                     & her Finances
                   </span>
                 </span>
-                <div className="divider divider-secondary mt-2" />
-                <div className="pl-2">
-                  <Sidebar />
-                </div>
+                <div className="divider divider-secondary mb-0" />
+                <Sidebar />
               </aside>
               <main className="layer-content">{children}</main>
             </div>
