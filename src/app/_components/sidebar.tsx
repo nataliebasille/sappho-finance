@@ -1,17 +1,17 @@
-import { DashboardLink } from "../(dashboard)/page";
-import { SalesVenuesLink } from "../sales-venues/page";
+import { DashboardLink } from "../(dashboard)/link";
+import { SalesVenuesLink } from "../sales-venues/link";
 
 export const Sidebar = () => {
   return (
     <nav className="list list-secondary gap-4">
-      <DashboardLink className="text-primary-contrast-base inline-block list-item h-full w-full">
+      <DashboardLink className="list-item h-full w-full text-primary-contrast-base">
         Dashboard
       </DashboardLink>
-      <span className="text-primary-contrast-base  list-item">Products</span>
-      <SalesVenuesLink className="text-primary-contrast-base inline-block list-item h-full  w-full">
+      <span className="list-item text-primary-contrast-base">Products</span>
+      <SalesVenuesLink className="list-item h-full w-full text-primary-contrast-base">
         Sales Venue
       </SalesVenuesLink>
-      <span className="text-primary-contrast-base  list-item">
+      <span className="list-item text-primary-contrast-base">
         Sales reports
       </span>
     </nav>

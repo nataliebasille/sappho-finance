@@ -13,8 +13,9 @@ type NavLinkProps = {
 export const NavLink = ({ className, href, children }: NavLinkProps) => {
   const pathname = usePathname();
   const active = pathname === href;
+  const c = twMerge(className, active && "active");
   return (
-    <Link className={twMerge(className, active && "active")} href={href}>
+    <Link className={c} href={href}>
       {children}
     </Link>
   );
