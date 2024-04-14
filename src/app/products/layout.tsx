@@ -15,7 +15,7 @@ export default function ProductsPageLayout({
           </Suspense>
         </div>
       </div>
-      <div className="flex">{children}</div>
+      {children}
     </>
   );
 }
