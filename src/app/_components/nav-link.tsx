@@ -8,11 +8,17 @@ type NavLinkProps = {
   className?: string;
   href: string;
   children?: React.ReactNode;
+  strict?: boolean;
 };
 
-export const NavLink = ({ className, href, children }: NavLinkProps) => {
+export const NavLink = ({
+  className,
+  href,
+  children,
+  strict = false,
+}: NavLinkProps) => {
   const pathname = usePathname();
-  const active = pathname === href;
+  const active = strict ? pathname === href : pathname.startsWith(href);
   const c = twMerge(className, active && "active");
   return (
     <Link className={c} href={href}>

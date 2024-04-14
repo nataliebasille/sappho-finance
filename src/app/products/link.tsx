@@ -1,6 +1,5 @@
 import { createLink } from "../_components/create-link";
 
-export const DashboardLink = createLink({
+export const ProductsLink = createLink({
   path: import.meta.url,
-  strict: true,
 });

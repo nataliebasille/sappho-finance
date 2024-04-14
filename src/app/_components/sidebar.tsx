@@ -1,4 +1,5 @@
 import { DashboardLink } from "../(dashboard)/link";
+import { ProductsLink } from "../products/link";
 import { SalesVenuesLink } from "../sales-venues/link";
 
 export const Sidebar = () => {
@@ -7,7 +8,9 @@ export const Sidebar = () => {
       <DashboardLink className="list-item h-full w-full text-primary-contrast-base">
         Dashboard
       </DashboardLink>
-      <span className="list-item text-primary-contrast-base">Products</span>
+      <ProductsLink className="list-item text-primary-contrast-base">
+        Products
+      </ProductsLink>
       <SalesVenuesLink className="list-item h-full w-full text-primary-contrast-base">
         Sales Venue
       </SalesVenuesLink>

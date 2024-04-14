@@ -3,12 +3,18 @@ import { NavLink } from "./nav-link";
 
 export function createLink<TParams extends ZodSchema>({
   path,
+  strict,
   params,
 }: {
   path: string;
+  strict?: boolean;
   params?: TParams;
 }) {
-  return createLinkComponent(normalizePath(path));
+  return createLinkComponent({
+    normalizedPath: normalizePath(path),
+    strict,
+    params,
+  });
 }
 
 type LinkProps<TParams extends ZodSchema> = {
@@ -16,10 +22,18 @@ type LinkProps<TParams extends ZodSchema> = {
   className?: string;
 };
 
-function createLinkComponent<TParams extends ZodSchema>(path: string) {
+function createLinkComponent<TParams extends ZodSchema>({
+  normalizedPath,
+  strict,
+  params,
+}: {
+  normalizedPath: string;
+  strict?: boolean;
+  params?: TParams;
+}) {
   const LinkComponent = ({ children, className }: LinkProps<TParams>) => {
     return (
-      <NavLink className={className} href={path}>
+      <NavLink className={className} href={normalizedPath} strict={strict}>
         {children}
       </NavLink>
     );
@@ -39,7 +53,7 @@ function normalizePath(path: string) {
   const normalizedPath = path
     .slice(srcAppIndex)
     // Remove file name so we have just the directory
-    .replace(/\/.*.tsx$/, "")
+    .replace(/(.*)\/.*.tsx$/, "$1")
     // Remove any route groups
     .replace(/\(.*\)/, "");
 
