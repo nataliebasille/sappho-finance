@@ -9,4 +9,5 @@ export default {
     connectionString: env.DATABASE_URL,
   },
   tablesFilter: ["sappho-finance_*"],
+  out: "./migrations",
 } satisfies Config;
