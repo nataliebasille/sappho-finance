@@ -1,14 +1,21 @@
-import { Suspense, type ReactNode } from "react";
+import { Suspense } from "react";
 import { ProductsList } from "./products-list";
 
-export default function ProductsLayout(props: { children: ReactNode }) {
+export default function ProductsPageLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <div>
-      <h1>Products</h1>
-      <Suspense fallback={<h2>Loading...</h2>}>
-        <ProductsList />
-      </Suspense>
-      {props.children}
-    </div>
+    <>
+      <div className="card card-secondary card-ghost mb-2">
+        <div className="card-content">
+          <Suspense fallback={<span>Loading ...</span>}>
+            <ProductsList />
+          </Suspense>
+        </div>
+      </div>
+      <div className="flex">{children}</div>
+    </>
   );
 }
