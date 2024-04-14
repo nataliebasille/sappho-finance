@@ -42,7 +42,7 @@ export default function RootLayout({
                 <div className="divider divider-secondary mb-0" />
                 <Sidebar />
               </aside>
-              <main className="layer-content">{children}</main>
+              <main className="layer-content p-4">{children}</main>
             </div>
           </TRPCReactProvider>
         </body>
