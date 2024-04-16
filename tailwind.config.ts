@@ -17,7 +17,13 @@ export default {
       primary: toRgb("#001F36"),
       secondary: toRgb("#efaa9c"),
       accent: toRgb("#e87a01"),
-      surface: toRgb("#f7dcdf"),
+      surface: {
+        color: toRgb("#f7dcdf"),
+        shade: 500,
+        variables: {
+          border: "600",
+        },
+      },
     }),
   ],
 } satisfies Config;

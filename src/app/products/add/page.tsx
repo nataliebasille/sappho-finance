@@ -1,5 +1,4 @@
 import { addProduct } from "~/server/actions/add-product";
-import { AddProductForm } from "./add-product-form";
 import { CancelAddButton } from "./cancel-add-button";
 import { SubmitButton } from "~/app/_components/submit-button";
 import { Form } from "~/app/_components/forms/form";
@@ -17,6 +16,7 @@ export default function ProductsAddPage() {
           revalidatePath("/products");
           redirect("/products");
         }
+
         return result;
       }}
       initialState={{
@@ -33,6 +33,7 @@ export default function ProductsAddPage() {
             label="Product name"
             type="text"
             autoFocus
+            placeholder="Enter product name"
           />
 
           <FormControl
@@ -42,6 +43,9 @@ export default function ProductsAddPage() {
             controlPrefix="$"
             type="number"
             inputMode="numeric"
+            min={1}
+            step={0.01}
+            placeholder="Enter price"
           />
 
           <SubmitButton className="btn-primary">+ Add</SubmitButton>
