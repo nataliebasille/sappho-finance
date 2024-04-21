@@ -3,7 +3,6 @@ import { ClerkProvider } from "@clerk/nextjs";
 
 import { Inter } from "next/font/google";
 
-import { TRPCReactProvider } from "~/trpc/react";
 import { Sidebar } from "./_components/sidebar";
 
 const inter = Inter({
@@ -27,24 +26,20 @@ export default function RootLayout({
         <body
           className={`font-sans ${inter.variable} h-screen w-screen max-w-full`}
         >
-          <TRPCReactProvider>
-            <div className="layer layer-fixed">
-              <aside className="layer-drawer flex min-w-72 flex-col bg-primary-base">
-                <span
-                  className="flex flex-col items-center justify-center px-2 pt-5 text-white"
-                  style={{ fontFamily: "fantasy" }}
-                >
-                  <span className="text-5xl">SAPPHO</span>
-                  <span className="text-lg tracking-widest">
-                    & her Finances
-                  </span>
-                </span>
-                <div className="divider divider-secondary mb-0" />
-                <Sidebar />
-              </aside>
-              <main className="layer-content p-4">{children}</main>
-            </div>
-          </TRPCReactProvider>
+          <div className="layer layer-fixed">
+            <aside className="layer-drawer flex min-w-72 flex-col bg-primary-base">
+              <span
+                className="flex flex-col items-center justify-center px-2 pt-5 text-white"
+                style={{ fontFamily: "fantasy" }}
+              >
+                <span className="text-5xl">SAPPHO</span>
+                <span className="text-lg tracking-widest">& her Finances</span>
+              </span>
+              <div className="divider divider-secondary mb-0" />
+              <Sidebar />
+            </aside>
+            <main className="layer-content p-4">{children}</main>
+          </div>
         </body>
       </html>
     </ClerkProvider>

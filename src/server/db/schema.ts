@@ -41,7 +41,7 @@ export const productPrices = createTable(
     productId: integer("product_id")
       .references(() => products.id)
       .notNull(),
-    price: varchar("price", { length: 256 }),
+    price: integer("price").notNull(),
     createdAt: timestamp("created_at")
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),

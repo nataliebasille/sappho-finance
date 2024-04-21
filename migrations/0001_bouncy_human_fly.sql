@@ -1,0 +1,2 @@
+ALTER TABLE "sappho-finance_product_price" ALTER COLUMN "price" SET DATA TYPE integer USING (price::integer);--> statement-breakpoint
+ALTER TABLE "sappho-finance_product_price" ALTER COLUMN "price" SET NOT NULL;

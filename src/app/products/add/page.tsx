@@ -1,4 +1,4 @@
-import { addProduct } from "~/server/actions/add-product";
+import { addProduct } from "~/server/api/products/actions";
 import { CancelAddButton } from "./cancel-add-button";
 import { SubmitButton } from "~/app/_components/submit-button";
 import { Form } from "~/app/_components/forms/form";

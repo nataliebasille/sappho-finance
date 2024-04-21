@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { ProductsList } from "./products-list";
+import { LoadingIndicator } from "../_components/loading-indicator";
 
 export default function ProductsPageLayout({
   children,
@@ -10,7 +11,7 @@ export default function ProductsPageLayout({
     <>
       <div className="card card-secondary card-ghost mb-2">
         <div className="card-content">
-          <Suspense fallback={<span>Loading ...</span>}>
+          <Suspense fallback={<LoadingIndicator />}>
             <ProductsList />
           </Suspense>
         </div>
