@@ -1,20 +1,25 @@
+import { Fragment } from "react";
+import { twMerge } from "tailwind-merge";
 import { getProducts } from "~/server/api/products/queries";
-import { db } from "~/server/db";
 
 export async function ProductsList() {
   const products = await getProducts();
 
   return products.length ? (
-    <div className="list">
+    <div className="grid grid-cols-[1fr_max-content] *:py-2">
+      <div className="font-bold">Name</div>
+      <div className="text-right font-bold">Price</div>
       {products.map((product) => (
-        <div key={product.id} className="list-item">
-          <div className="list-item-content">
-            <div className="list-item-title">{product.name}</div>
-            <div className="list-item-subtitle">
-              {product.priceHistory[0].price / 100}
-            </div>
+        <Fragment key={product.id}>
+          <div className={twMerge("border-t border-secondary-base")}>
+            {product.name}
           </div>
-        </div>
+          <div
+            className={twMerge("text-right", "border-t border-secondary-base")}
+          >
+            ${(product.priceHistory[0].price / 100).toFixed(2)}
+          </div>
+        </Fragment>
       ))}
     </div>
   ) : (

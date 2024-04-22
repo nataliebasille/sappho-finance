@@ -1,20 +1,18 @@
-import { addProduct } from "~/server/api/products/actions";
-import { CancelAddButton } from "./cancel-add-button";
-import { SubmitButton } from "~/app/_components/submit-button";
-import { Form } from "~/app/_components/forms/form";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
+import { addProduct } from "~/server/api/products/actions";
+import { Form } from "../_components/forms/form";
+import { SubmitButton } from "../_components/submit-button";
 
-export default function ProductsAddPage() {
+export const AddProductForm = () => {
   return (
     <Form
+      className="flex items-start gap-3"
       action={async (data) => {
         "use server";
         const result = await addProduct(data);
 
         if (result.type === "success") {
           revalidatePath("/products");
-          redirect("/products");
         }
 
         return result;
@@ -23,7 +21,6 @@ export default function ProductsAddPage() {
         name: "",
         price: 0,
       }}
-      className="flex gap-3"
     >
       {({ FormControl }) => (
         <>
@@ -49,9 +46,8 @@ export default function ProductsAddPage() {
           />
 
           <SubmitButton className="btn-primary">+ Add</SubmitButton>
-          <CancelAddButton />
         </>
       )}
     </Form>
   );
-}
+};

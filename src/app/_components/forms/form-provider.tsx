@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useMemo } from "react";
+import { createContext, useContext, useMemo, useRef } from "react";
 import { useFormState } from "react-dom";
 import {
   type FormAction,
@@ -37,9 +37,17 @@ export const FormProvider = ({
   initialState,
   children,
 }: FormProviderProps<unknown, unknown>) => {
+  const ref = useRef<HTMLFormElement>(null);
   const [state, formAction] = useFormState(
     async (_: FormActionResult<unknown, unknown> | null, data: FormData) => {
-      return await action(data);
+      const result = await action(data);
+
+      // will work for now, but we should invert this dependency
+      if (result.type === "success") {
+        ref.current?.reset();
+      }
+
+      return result;
     },
     {
       type: "success",
@@ -62,7 +70,7 @@ export const FormProvider = ({
 
   return (
     <FormProviderContext.Provider value={contextValue}>
-      <form action={formAction} className={className}>
+      <form ref={ref} action={formAction} className={className}>
         {children}
       </form>
     </FormProviderContext.Provider>

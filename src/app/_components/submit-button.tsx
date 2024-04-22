@@ -13,7 +13,6 @@ export const SubmitButton = ({
   className?: string;
 }) => {
   const { pending } = useFormStatus();
-  console.log("pending", pending);
   return (
     <button
       type="submit"
