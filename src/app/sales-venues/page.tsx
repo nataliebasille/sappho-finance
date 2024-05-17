@@ -1,8 +1,16 @@
+import { PageContainer } from "../_components/page-container";
+
 export default function SalesVenuesPage() {
   return (
-    <div>
-      <h1>SalesVenues</h1>
-      <p>Welcome to the SalesVenues!</p>
-    </div>
+    <PageContainer>
+      <div className="card card-secondary card-ghost mb-2">
+        <div className="card-header">
+          <h3 className="card-title font-bold">Sales venues</h3>
+        </div>
+        <div className="card-content">
+          <p>Coming soon...</p>
+        </div>
+      </div>
+    </PageContainer>
   );
 }
